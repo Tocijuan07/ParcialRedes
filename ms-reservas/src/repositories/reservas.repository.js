@@ -27,15 +27,15 @@ async function findByCodigo(codigo) {
 
 async function create(reserva) {
   const [resultado] = await pool.query(
-    'INSERT INTO reservas (codigo, huesped, fecha_entrada, fecha_salida, personas) VALUES (?, ?, ?, ?, ?)',
-    [reserva.codigo, reserva.huesped, reserva.fecha_entrada, reserva.fecha_salida, reserva.personas]);
+    'INSERT INTO reservas (codigo, huesped, fecha_entrada, fecha_salida, personas, plan_id) VALUES (?, ?, ?, ?, ?, ?)',
+    [reserva.codigo, reserva.huesped, reserva.fecha_entrada, reserva.fecha_salida, reserva.personas, reserva.plan_id]);
   return findById(resultado.insertId);
 }
 
 async function actualizar(id, reserva) {
   const [resultado] = await pool.query(
-    'UPDATE reservas SET codigo = ?, huesped = ?, fecha_entrada = ?, fecha_salida = ?, personas = ? WHERE id = ?',
-    [reserva.codigo, reserva.huesped, reserva.fecha_entrada, reserva.fecha_salida, reserva.personas, id]);
+    'UPDATE reservas SET codigo = ?, huesped = ?, fecha_entrada = ?, fecha_salida = ?, personas = ?, plan_id = ? WHERE id = ?',
+    [reserva.codigo, reserva.huesped, reserva.fecha_entrada, reserva.fecha_salida, reserva.personas, reserva.plan_id, id]);
   if (resultado.affectedRows === 0) return null;
   return findById(id);
 }

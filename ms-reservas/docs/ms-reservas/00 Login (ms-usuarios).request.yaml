@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{usuarios}}/usuarios/login"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "CAMBIAR": "ajuste el cuerpo al login de su ms-usuarios"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Código 200', () => pm.response.to.have.status(200));
+      const j = pm.response.json();
+      pm.collectionVariables.set('token', j.token);
+      pm.test('Trae token', () => pm.expect(j.token).to.be.a('string'));
+    language: text/javascript
+order: 1000

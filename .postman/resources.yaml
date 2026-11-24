@@ -4,4 +4,4 @@ workspace:
 
 localResources:
   collections:
-    - ../ms-reservas/docs/ms-reservas.postman.collection.json
+    - ../ms-reservas/docs/ms-reservas

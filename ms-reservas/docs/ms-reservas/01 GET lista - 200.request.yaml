@@ -1,0 +1,11 @@
+$kind: http-request
+name: 01 GET lista -> 200
+url: "{{base}}/reservas"
+method: GET
+headers:
+  Authorization: Bearer {{token}}
+scripts:
+  - type: afterResponse
+    code: pm.test('Código 200', () => pm.response.to.have.status(200));
+    language: text/javascript
+order: 2000

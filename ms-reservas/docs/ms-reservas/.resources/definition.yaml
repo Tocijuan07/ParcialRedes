@@ -1,0 +1,7 @@
+$kind: collection
+description: ""
+variables:
+  base: http://127.0.0.1:3011
+  usuarios: http://127.0.0.1:3001
+  token: ""
+  idCreado: ""

@@ -21,6 +21,7 @@ Puerto **3011** en 127.0.0.1.
 | fecha_entrada | fecha AAAA-MM-DD | obligatoria, fecha real |
 | fecha_salida | fecha AAAA-MM-DD | obligatoria, **posterior** a fecha_entrada (400) |
 | personas | entero | mayor que 0 |
+| plan_id | entero | mayor que 0 |
 
 ## Seguridad
 
@@ -46,7 +47,8 @@ Ejemplo de cuerpo para POST/PUT:
   "huesped": "Ana Torres",
   "fecha_entrada": "2027-03-01",
   "fecha_salida": "2027-03-05",
-  "personas": 2
+  "personas": 2,
+  "plan_id": 4
 }
 ```
 

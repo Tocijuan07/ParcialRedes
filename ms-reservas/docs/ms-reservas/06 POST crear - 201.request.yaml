@@ -1,0 +1,24 @@
+$kind: http-request
+name: 06 POST crear -> 201
+url: "{{base}}/reservas"
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+body:
+  type: text
+  content: |-
+    {
+      "codigo": "RES-100",
+      "huesped": "Ana Torres",
+      "fecha_entrada": "2027-03-01",
+      "fecha_salida": "2027-03-05",
+      "personas": 2
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Código 201', () => pm.response.to.have.status(201));
+      pm.collectionVariables.set('idCreado', pm.response.json().id);
+    language: text/javascript
+order: 7000

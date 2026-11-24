@@ -35,6 +35,10 @@ function validarReserva(datos) {
   if (!Number.isInteger(datos.personas) || datos.personas <= 0) {
     errores.push('personas debe ser un entero mayor que 0');
   }
+
+  if (!Number.isInteger(datos.plan_id) || datos.plan_id <= 0) {
+    errores.push('El plan_id debe ser un entero mayor que 0');
+  }
   return errores;
 }
 
@@ -46,6 +50,7 @@ function construirReserva(datos) {
     fecha_entrada: datos.fecha_entrada,
     fecha_salida: datos.fecha_salida,
     personas: datos.personas,
+    plan_id: datos.plan_id,
   };
 }
 

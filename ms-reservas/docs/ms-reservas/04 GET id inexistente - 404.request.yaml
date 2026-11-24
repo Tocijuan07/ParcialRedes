@@ -1,0 +1,11 @@
+$kind: http-request
+name: 04 GET id inexistente -> 404
+url: "{{base}}/reservas/99999"
+method: GET
+headers:
+  Authorization: Bearer {{token}}
+scripts:
+  - type: afterResponse
+    code: pm.test('Código 404', () => pm.response.to.have.status(404));
+    language: text/javascript
+order: 5000
