@@ -23,13 +23,10 @@ async function pedir(ruta, token) {
 
 async function validarPlan(id, token) {
   const respuesta = await pedir(`/planes/${id}`, token);
-  if (!respuesta) throw new HttpError('ms-planes no respondió', 503);
-  if (respuesta.status === 404) {
-    throw new HttpError('Plan no encontrado', 404), disponible=false;}
-  if (!respuesta.ok) {
-    throw new HttpError(502, `ms-planes respondió ${respuesta.status}`, disponible=true);
-  }
-  return disponible;
+  if (!respuesta) throw new HttpError(503, 'ms-planes no respondió');
+  if (respuesta.status === 404) throw new HttpError(400, `El plan ${id} no existe`);
+  if (!respuesta.ok) throw new HttpError(502, `ms-planes respondió ${respuesta.status}`);
+  return await respuesta.json();   // { id, nombre_plan, incluye, disponible }
 }
 
 // COMPOSICIÓN: varios planes en UNA reservación → plan_id → plan (null si no responde)

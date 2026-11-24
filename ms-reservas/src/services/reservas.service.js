@@ -31,7 +31,7 @@ async function crear(datos) {
 
 async function actualizar(id, datos) {
   const existente = await repo.findById(id);
-  if (!existente) throw new HttpError(404, `No existe la reserva con id ${id}`);
+  if (!existente) throw new HttpError(400, `No existe la reserva con id ${id}`);
 
   const errores = validarReserva(datos);
   if (errores.length > 0) throw new HttpError(400, 'Datos inválidos', errores);
