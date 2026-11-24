@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: 1e46278b-f418-4bd0-8162-edd394f809c9
+
+localResources:
+  collections:
+    - ../ms-reservas/docs/ms-reservas.postman.collection.json

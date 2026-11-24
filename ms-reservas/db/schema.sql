@@ -9,10 +9,11 @@ CREATE TABLE reservas (
   huesped VARCHAR(100) NOT NULL,
   fecha_entrada DATE NOT NULL,
   fecha_salida DATE NOT NULL,
-  personas INT NOT NULL
+  personas INT NOT NULL,
+  plan_id INT NOT NULL
 ) DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO reservas (codigo, huesped, fecha_entrada, fecha_salida, personas) VALUES
-('RES-001', 'Oscar Jimenez', '2026-12-20', '2026-12-27', 2),
-('RES-002', 'Ilana Urrea', '2027-01-05', '2027-01-08', 1),
-('RES-003', 'Juan Damigo', '2027-02-14', '2027-02-17', 4);
+INSERT INTO reservas (codigo, huesped, fecha_entrada, fecha_salida, personas, plan_id) VALUES
+('RES-001', 'Oscar Jimenez', '2026-12-20', '2026-12-27', 2, 1),
+('RES-002', 'Ilana Urrea', '2027-01-05', '2027-01-08', 1, 2),
+('RES-003', 'Juan Damigo', '2027-02-14', '2027-02-17', 4, 3);
